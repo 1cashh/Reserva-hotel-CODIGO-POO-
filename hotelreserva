@@ -1,68 +1,58 @@
-import java.util.Scanner;
+public class Reserva {
 
-//TIP To <b>Run</b> code, 
-public class Main {
-    public static void main(String[] args) {
+    private String nombre;
+    private int numHabitacion;
+    private int cantidadNoches;
+    private double valorPornoche;
 
-        Scanner sc = new Scanner(System.in);
+    public Reserva(String nombre,int numHabitacion,int cantidadNoches, double valorPornoche){
 
-        Reserva reserva1 = new Reserva("Pablo",145,4,10000);
-        Reserva reserva2 = new Reserva("Pedro",146,2,5000);
-        Reserva reserva3 = new Reserva("Alexa",147,1,2000);
-
-        int opcion;
-
-        do {
-
-            System.out.println("   HOTEL     ");
-            System.out.println("1.Mostrar reserva 1");
-            System.out.println("2.Mostrar reserva 2");
-            System.out.println("3.Mostrar reserva 3");
-            System.out.println("4.Modificar noches");
-            System.out.println("5.Mostrar total");
-            System.out.println("0.Salir");
-
-            opcion = sc.nextInt();
-
-            switch (opcion){
-
-                case 1:
-
-                    reserva1.mostrarInformacion();
-                    break;
-                case 2:
-
-                    reserva2.mostrarInformacion();
-                    break;
-                case 3:
-
-                    reserva3.mostrarInformacion();
-                    break;
-                case 4:
-                    System.out.println("¿Que reserva desea modificar?");
-                    System.out.println("1. Pablo");
-                    System.out.println("2. Pedro");
-                    System.out.println("3. Alexa");
-
-                    int reserva = sc.nextInt();
-
-                    System.out.println("Ingrese la nueva cantidad de noches:");
-                    int noches = sc.nextInt();
-                    break;
-                case 5:
-
-                    System.out.println("Pablo: " + reserva1.calcularTotal());
-                    System.out.println("Pedro: " + reserva2.calcularTotal());
-                    System.out.println("Alexa: " + reserva3.calcularTotal());
-                    break;
-
-                case 0:
-                    System.out.println("Saliendo.....");
-                    break;
-
-                default:
-                    System.out.println("Opcion invalida");
-
-            }
-        }while(opcion != 0);
+        this.nombre = nombre;
+        this.numHabitacion = numHabitacion;
+        this.cantidadNoches = cantidadNoches;
+        this.valorPornoche = valorPornoche;
     }
+    public String getNombre(){
+
+        return nombre;
+    }
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+    public int getNumHabitacion(){
+        return numHabitacion;
+    }
+    public void setNumHabitacion(int numHabitacion){
+        this.numHabitacion = numHabitacion;
+    }
+    public int getCantidadNoches(){
+        return cantidadNoches;
+    }
+    public void setCantidadNoches(int cantidadNoches){
+        this.cantidadNoches = cantidadNoches;
+    }
+    public double getValorPornoche(){
+        return valorPornoche;
+    }
+    public void setValorPornoche(double valorPornoche){
+        this.valorPornoche = valorPornoche;
+    }
+
+    public void mostrarInformacion(){
+
+        System.out.println("Nombre:" + nombre);
+        System.out.println("Num de habitacion:" + numHabitacion);
+        System.out.println("Cantidad de noches:" + cantidadNoches);
+        System.out.println("Valor por noche:" + valorPornoche);
+
+        }
+
+    public double calcularTotal() {
+
+        double total = cantidadNoches * valorPornoche;
+
+        return total;
+    }
+
+}
+
